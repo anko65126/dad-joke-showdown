@@ -18,6 +18,7 @@ DEFAULT_TARGET = Path("/output/entry.txt")
 
 
 def main(argv):
+    assert len(JOKE) <= 200, "joke exceeds the 200 character limit"
     target = Path(argv[1]) if len(argv) > 1 else DEFAULT_TARGET
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(JOKE + "\n", encoding="utf-8")
